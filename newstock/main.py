@@ -39,23 +39,16 @@ def stockprice():
 
 ##create function to run def(stockprice) at 12:00:00, 12:30:00, 13:00:00, 13:30:00, 14:00:00, 14:30:00, 15:00:00
 def runstockprice():
-    # if tradinghours == False:
-    #     t = time.localtime()
-    #     current_time = time.strftime("%H:%M:%S", t)
-    #     if current_time == "12:00:00" or current_time == "12:30:00" or current_time == "16:25:00" or current_time == "13:30:00" or current_time == "14:00:00" or current_time == "14:30:00" or current_time == "15:00:00":
-    #         sendmessage = True
-    #         time.sleep(1000)
-
+    if tradinghours == False:
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+        if current_time == "12:00:00" or current_time == "12:30:00" or current_time == "16:25:00" or current_time == "13:30:00" or current_time == "14:00:00" or current_time == "14:30:00" or current_time == "15:00:00":
+            sendmessage = True
 
 
  
 ##create infinite loop to run functions
 while True:
-        t = time.localtime()
-        current_time = time.strftime("%H:%M:%S", t)
-        if current_time == "12:00:00" or current_time == "12:30:00" or current_time == "16:25:00" or current_time == "13:30:00" or current_time == "14:00:00" or current_time == "14:30:00" or current_time == "15:00:00":
-            sendmessage = True
-            time.sleep(1000)
     if sendmessage == True:
         message = client.messages \
                 .create(
@@ -66,17 +59,6 @@ while True:
         print(message.sid)
         sendmessage = False
 
-
-
-# message = client.messages \
-#     .create(
-#     body=str(stockprice()),
-#     from_='+12058824151',
-#     to='+14088194119',
-#                     )
-
-# print(message.sid)   
-    
         
         
         
